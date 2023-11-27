@@ -1,0 +1,295 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #3498db;
+    margin-top: 50px;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.button {
+    font-size: 18px;
+    padding: 15px 30px;
+    margin: 15px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    background-size: 200% 200%;
+    transition: transform 0.3s;
+    animation: gradientAnimation 3s ease infinite alternate-reverse;
+
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    background-size: 400% 400%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.3s;
+    animation: gradientAnimation 3s ease infinite alternate-reverse;
+}
+
+.button:hover::before {
+    filter: blur(5px);
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    opacity: .7;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+.form-container,
+.orders-container,
+.info-container {
+    background: #333;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+    /* Center the container */
+}
+
+
+/* Order Pagse */
+
+.form-container{
+    max-width: 500px;
+    padding: 30px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px;
+}
+
+label {
+    font-size: 18px;
+    width: 100px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+input,
+select {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+/* Add input shadow blue */
+input:focus,
+select:focus {
+    outline: none;
+}
+
+
+
+.number-input {
+    flex: 1;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    display: inline-flex;
+    overflow: hidden;
+    height: 50px;
+    border-radius: 10px;
+    border: solid #c2c4c6;
+    border-width: 2px;
+    transform: translateY(-6px);
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    flex: 0.5;
+    /* Adjust the value to make the buttons smaller */
+    outline: none;
+    -webkit-appearance: none;
+    background-color: #eeeeee !important;
+    color: #212121;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    /* Set the width of the buttons */
+    border-radius: 0;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    transform: translate(0, 0);
+    transition: all 0.15s;
+}
+
+
+.number-input input[type=number] {
+    font-family: sans-serif;
+    min-width: 65%;
+    /* Set the max-width to stretch the input field */
+    padding: .5rem;
+    border: 0;
+    text-align: center;
+    outline: none;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    font-family: sans-serif;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Hide also the spin button for mozilla */
+
+
+.number-input button:before,
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 0.5rem;
+    height: 2px;
+    background-color: #212121;
+    transform: translate(-50%, -50%);
+}
+
+.number-input button:hover {
+    box-shadow: none;
+    background-color: #c2c4c6;
+    transform: translate(-3px, 0);
+}
+
+.number-input button:hover.plus {
+    transform: translate(3px, 0);
+}
+
+.number-input button:active,
+.number-input button:active.plus {
+    box-shadow: none;
+    transform: translate(0, 0);
+    transition-duration: 0.01s;
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Pending Page */
+.orders-container {
+    max-width: 900px;
+    padding: 20px;
+}
+
+form {
+    width: 100%;
+
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #555;
+}
+
+th {
+    background: #444;
+    color: #fff;
+}
+
+td {
+    background: #555;
+    color: #fff;
+}
+
+/* Info Page */ 
+
+.info-container {
+    max-width: 500px;
+    padding: 30px;
+}
+
+.info-container p {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+}
+
+.info-label {
+    font-size: 16px;
+    width: 150px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.info-value {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #555;
+    color: #fff;
+}

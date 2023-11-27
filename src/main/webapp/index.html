@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Pending Orders</title>
+   <style>
+      body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         background-color: #222;
+         color: #fff;
+         text-align: center;
+         margin: 0;
+         padding: 0;
+      }
+
+      h1 {
+         color: #3498db;
+         margin-top: 50px;
+         font-size: 36px;
+         letter-spacing: 1px;
+      }
+
+      .orders-container {
+         max-width: 800px;
+         background: #333;
+         box-shadow: 0 5px 35px rgba(0, 0, 0, 0.4);
+         padding: 20px;
+         border-radius: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin: 30px auto;
+         /* Center the container */
+      }
+
+      table {
+         width: 100%;
+         margin-top: 20px;
+         border-collapse: collapse;
+      }
+
+      th,
+      td {
+         padding: 12px;
+         border: 1px solid #555;
+      }
+
+      th {
+         background: #444;
+         color: #fff;
+      }
+
+      td {
+         background: #555;
+         color: #fff;
+      }
+
+   
+      .button {
+         font-size: 18px;
+         padding: 15px 30px;
+         margin: 15px;
+         cursor: pointer;
+         color: #fff;
+         border: none;
+         border-radius: 5px;
+         background: linear-gradient(45deg, #8e44ad, #3498db);
+         background-size: 200% 200%;
+         transition: transform 0.3s;
+         animation: gradientAnimation 3s ease infinite alternate-reverse;
+
+      }
+
+      .button::before{
+         content: '';
+         position: absolute;
+         z-index: -1;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: linear-gradient(45deg, #8e44ad, #3498db);
+         background-size: 400% 400%;
+         border-radius: 10px;
+         opacity: 0;
+         transition: all 0.3s;
+         animation: gradientAnimation 3s ease infinite alternate-reverse;
+      }
+      
+      .button:hover::before {
+         filter: blur(5px);
+         top: -5px;
+         left: -5px;
+         right: -5px;
+         bottom: -5px;
+         opacity: .7;
+      }
+      
+      .button:hover {
+         transform: scale(1.05);
+      }
+      
+      .button:active {
+         transform: scale(0.95);
+      }
+
+      @keyframes gradientAnimation {
+         0% {
+            background-position: 0% 50%;
+         }
+
+         100% {
+            background-position: 100% 50%;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Pending Orders</h1>
+
+   <div class="orders-container">
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Order</th>
+               <th>Price</th>
+               <th>Quantity</th>
+               <th>Total</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+  
+            <tr>
+               <td>Customer 2</td>
+               <td>Menu 2</td>
+               <td>$15.00</td>
+               <td>3</td>
+               <td>$45.00</td>
+               <td><button class="button" onclick="serveOrder(2)">Serve Order</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+         </tbody>
+      </table>
+
+      <button class="button" onclick="serveSelectedOrders()">Serve Selected Orders</button>
+   </div>
+
+   <script>
+      function serveOrder(orderId) {
+         // Handle serving a specific order (replace with your logic)
+         console.log(`Order ${orderId} served.`);
+      }
+
+      function serveSelectedOrders() {
+         // Handle serving selected orders (replace with your logic)
+         console.log('Selected orders served.');
+      }
+   </script>
+</body>
+
+</html>
